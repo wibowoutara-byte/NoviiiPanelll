@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pip install -r ivas/requirements.txt"
+
+[deploy]
+startCommand = "cd ivas && python run.py"
+healthcheckPath = "/api/healthz"
+healthcheckTimeout = 120
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
